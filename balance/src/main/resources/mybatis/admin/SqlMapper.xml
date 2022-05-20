@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.batch.balance.domain.dao.AdminDao">
+
+    <select id="selectTest" parameterType="hashmap"	resultType="com.batch.balance.domain.dto.Order">
+        SELECT first_name,last_name
+        FROM monkey.people
+    </select>
+
+    <insert id="insertTest" parameterType="com.batch.balance.domain.dto.Order">
+        insert into monkey.people2(first_name,last_name) values (#{first_name,jdbcType=VARCHAR},#{last_name,jdbcType=VARCHAR})
+    </insert>
+
+</mapper>

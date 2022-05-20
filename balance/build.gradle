@@ -1,0 +1,52 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.7'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.batch'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+apply plugin: 'application'
+mainClassName = 'com.batch.balance.BalanceApplication'
+
+
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.mapstruct.extensions.spring:mapstruct-spring-annotations:0.1.1'
+	implementation 'io.github.yoshikawaa.modelmapper.spring.boot:modelmapper-spring-boot:0.1.0'
+	implementation 'com.github.rozidan:modelmapper-spring-boot-starter:2.3.1'
+	implementation 'org.springframework.batch:spring-batch-core:4.3.5'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation "org.mapstruct:mapstruct:1.4.2.Final"
+	annotationProcessor "org.mapstruct:mapstruct-processor:1.4.2.Final"
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.1.0'
+	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
+	compileOnly 'org.projectlombok:lombok:1.18.24'
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.1.0'
+	annotationProcessor 'org.projectlombok:lombok:1.18.24'
+	runtimeOnly 'mysql:mysql-connector-java'
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+	implementation 'javax.servlet:jstl'
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

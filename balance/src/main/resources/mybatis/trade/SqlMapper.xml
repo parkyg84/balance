@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.batch.balance.domain.dao.TradeDao">
+
+    <select id="selectTest" parameterType="hashmap"	resultType="com.batch.balance.domain.dto.Order">
+        SELECT first_name,last_name
+        FROM dbo.people with(nolock)
+    </select>
+
+    <select id="selectTest2" parameterType="hashmap"	resultType="com.batch.balance.domain.dto.Order">
+        SELECT first_name,last_name
+        FROM dbo.people WITH (NOLOCK)
+        ORDER BY seq
+        OFFSET (#{_page}) * #{_pageSize} ROW
+        FETCH NEXT #{_pageSize} ROW ONLY
+    </select>
+</mapper>
+
